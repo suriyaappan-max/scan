@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook — generated with runcell</title>
+    <meta name="description" content="Exported with runcell — convert .ipynb notebooks to HTML or PDF anytime at runcell.dev." />
+    <meta name="generator" content="runcell" />
+    <style>
+        :root {
+            --jp-code-font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+            --jp-content-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --jp-cell-prompt-width: 64px;
+            --jp-input-prompt-color: #307fc1;
+            --jp-output-prompt-color: #bf5b3d;
+            --jp-cell-input-bg: #f7f7f7;
+            --jp-layout-color0: #ffffff;
+            --jp-layout-color1: #f7f7f7;
+            --jp-border-color1: #e0e0e0;
+            --jp-content-font-color0: #000000;
+            --jp-content-font-color1: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--jp-content-font-family);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--jp-content-font-color0);
+            background-color: var(--jp-layout-color0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cell structure */
+        .cell {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cell-prompt {
+            min-width: var(--jp-cell-prompt-width);
+            width: var(--jp-cell-prompt-width);
+            font-family: var(--jp-code-font-family);
+            font-size: 12px;
+            padding: 10px 8px 10px 0;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .cell-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        /* Input prompt styling - Jupyter blue */
+        .input-prompt {
+            color: var(--jp-input-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Output prompt styling - Jupyter red/orange */
+        .output-prompt {
+            color: var(--jp-output-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Code cell input area */
+        .input-area {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            overflow-x: auto;
+        }
+
+        .input-area pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Output area */
+        .output-area {
+            margin-top: 0;
+        }
+
+        .output-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+        }
+
+        .output-content {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 0;
+        }
+
+        .output-content pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Stream output (stdout/stderr) */
+        .output-stream {
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .output-stderr {
+            background-color: #fdd;
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* Execute result / display data */
+        .output-result {
+            padding: 4px 0;
+        }
+
+        .output-result pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+        }
+
+        /* Image output */
+        .output-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HTML output (DataFrames, etc.) */
+        .output-html {
+            overflow-x: auto;
+        }
+
+        .output-html table {
+            border-collapse: collapse;
+            font-size: 13px;
+            font-family: var(--jp-content-font-family);
+        }
+
+        .output-html table th,
+        .output-html table td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .output-html table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .output-html table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Error output */
+        .output-error {
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown cell styling */
+        .markdown-cell {
+            padding: 10px 0;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0.67em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0.83em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 1em 0;
+        }
+
+        .markdown-cell h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 1.33em 0;
+        }
+
+        .markdown-cell h5 {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin: 1.67em 0;
+        }
+
+        .markdown-cell h6 {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2.33em 0;
+            color: #6a737d;
+        }
+
+        .markdown-cell p {
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .markdown-cell code {
+            font-family: var(--jp-code-font-family);
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        .markdown-cell pre {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 3px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+
+        .markdown-cell pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 100%;
+        }
+
+        .markdown-cell blockquote {
+            margin: 0 0 16px 0;
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 4px solid #dfe2e5;
+        }
+
+        .markdown-cell ul,
+        .markdown-cell ol {
+            margin: 0 0 16px 0;
+            padding-left: 2em;
+        }
+
+        .markdown-cell li {
+            margin: 0.25em 0;
+        }
+
+        .markdown-cell a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-cell hr {
+            border: 0;
+            border-top: 1px solid var(--jp-border-color1);
+            margin: 24px 0;
+        }
+
+        .markdown-cell img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            margin: 0 0 16px 0;
+        }
+
+        .markdown-cell table th,
+        .markdown-cell table td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .markdown-cell table th {
+            font-weight: 600;
+            background-color: #f6f8fa;
+        }
+
+        .markdown-cell table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Raw cell styling */
+        .raw-cell {
+            background-color: var(--jp-layout-color1);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Empty prompt placeholder */
+        .prompt-empty {
+            color: transparent;
+        }
+
+        .export-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--jp-border-color1);
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .export-footer a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .export-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [1]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># ติดตั้งไลบรารีที่จำเป็นอัตโนมัติ
+!pip install -q feedparser yfinance
+
+# 1. ดาวน์โหลดฟอนต์ Sarabun จาก Google Fonts เข้าโปรแกรมโดยตรง
+import urllib.request
+import urllib.parse
+import matplotlib.font_manager as fm
+import feedparser
+import io
+import datetime
+import warnings
+
+warnings.filterwarnings('ignore')
+
+urllib.request.urlretrieve('https://github.com/google/fonts/raw/main/ofl/sarabun/Sarabun-Regular.ttf', 'Sarabun-Regular.ttf')
+urllib.request.urlretrieve('https://github.com/google/fonts/raw/main/ofl/sarabun/Sarabun-Bold.ttf', 'Sarabun-Bold.ttf')
+
+fm.fontManager.addfont('Sarabun-Regular.ttf')
+fm.fontManager.addfont('Sarabun-Bold.ttf')
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+plt.rcParams['font.family'] = 'Sarabun'
+mpl.rcParams['axes.unicode_minus'] = False
+
+import time
+import pandas as pd
+import numpy as np
+import yfinance as yf
+import ipywidgets as widgets
+from IPython.display import display, clear_output, HTML
+
+try:
+    from google.colab import data_table
+    data_table.enable_dataframe_formatter()
+    IN_COLAB = True
+except ImportError:
+    IN_COLAB = False
+
+# ==========================================
+# 0. ตั้งค่าพารามิเตอร์ทั้ง 2 แบบ
+# ==========================================
+CONFIG_STD = {
+    'ema_long': 200, 'ema_short': 50,
+    'macd_lookback': 3, 'bb_lookback': 5, 'bb_tolerance': 0.02,
+    'min_score': 3, 'require_trend': True,
+    'use_closed_bar': True, 'chunk_size': 40, 'min_bars': 30,
+}
+
+CONFIG_FAST = {
+    'ema_long': 200, 'ema_short': 50,
+    'macd_lookback': 2, 'bb_lookback': 3, 'bb_tolerance': 0.02,
+    'min_score': 2, 'require_trend': False,
+    'use_closed_bar': True, 'chunk_size': 40, 'min_bars': 30,
+}
+
+TIMEFRAMES = {
+    'Hour':  ('1h',  '1y'),
+    'Day':   ('1d',  '5y'),
+    'Week':  ('1wk', '10y'),
+    'Month': ('1mo', 'max'),
+}
+TF_ORDER = list(TIMEFRAMES)
+TF_CODE = {k: v[0] for k, v in TIMEFRAMES.items()}
+PERIOD_BY_INTERVAL = {v[0]: v[1] for v in TIMEFRAMES.values()}
+TF_LABELS = {'1h': 'Hourly (1h)', '1d': 'Daily (1d)', '1wk': 'Weekly (1wk)', '1mo': 'Monthly (1mo)'}
+
+set_stocks = [
+    "BANPU", "HANA", "AAV", "DELTA", "RATCH", "BLA", "KTB", "TRUE", "DIF",
+    "BBL", "HMPRO", "STGT", "ADVANC", "DOHOME", "RCL", "BTG", "KTC", "TTA",
+    "BCH", "ICHI", "TASCO", "AEONTS", "EA", "SAWAD", "BTS", "LH", "TTB",
+    "BCP", "IRPC", "TCAP", "AMATA", "EGCO", "SCB", "CBG", "M", "TU",
+    "BCPG", "IVL", "TFG", "AOT", "ERW", "SCC", "CCET", "MEGA", "TVO",
+    "BDMS", "JMART", "TIDLOR", "AP", "GFPT", "SCGP", "CENTEL", "MINT", "VGI",
+    "BEM", "JMT", "TISCO", "AURA", "GLOBAL", "SIRI", "CHG", "MOSHI", "WHA",
+    "BGRIM", "KBANK", "TLI", "AWC", "GPSC", "SPALI", "CK", "MTC", "WHAUP",
+    "BH", "KCE", "TOA", "BA", "GULF", "SPRC", "COM7", "OR", "PLANB",
+    "BJC", "KKP", "TOP", "BAM", "GUNKUL", "STA", "CPALL", "OSP", "PR9",
+    "CPF", "PRM", "MRDIYT", "CPN", "PTG", "GST", "CRC", "PTT", "PTTEP"
+]
+
+mai_stocks = [
+    "AU", "BE8", "BBIK", "CHAYO", "CHO", "DDD", "EKH", "FTE", "HEALTH",
+    "PIMO", "PJW", "PLUS", "PROS", "PSG", "RBF", "RT", "SABUY", "SAF",
+    "TPCS", "TRT", "TRUBB", "TVT", "UBE", "UEC", "UREKA", "WINMED", "WPH",
+    "HL", "IIG", "INSET", "JCT", "KUN", "LEO", "MOONG", "NCAP", "NER",
+    "SALEE", "SELIC", "SICT", "SPA", "SSP", "STECH", "TAKUNI", "TMI", "TNP",
+    "YGG", "ZIGA", "NETBAY", "TPAC"
+]
+
+dr_stocks = [
+    "AAPL80", "MSFT80", "NVDA80", "TSLA80", "AMZN80", "GOOG80", "META80", "NFLX80", "COIN80",
+    "BABA80", "BABA19", "JD19", "BYDC80", "XIAOMI80", "TSM80", "PDD80", "NDX01", "SP500",
+    "CN50", "JP225", "E1VFVN3001"
+]
+
+forex_stocks = [
+    "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
+    "GBPJPY=X", "AUDJPY=X", "EURAUD=X", "USDTHB=X", "EURTHB=X", "JPYTHB=X", "GBPTHB=X", "EURJPY=X"
+]
+
+RESOLVED = {}
+
+def normalize_symbol(raw):
+    sym = str(raw).strip().upper().replace(' ', '')
+    return sym[:-3] if sym.endswith('.BK') else sym
+
+def get_yf_symbol(code):
+    code = str(code).strip().upper().replace(' ', '')
+    if code.startswith('^') or code.endswith('.BK') or '-' in code or '=' in code:
+        return code
+    return code + '.BK'
+
+def is_thai(code):
+    sym = RESOLVED.get(code, get_yf_symbol(code))
+    return sym.endswith('.BK') and not '=X' in sym
+
+def _recent(cond, window):
+    return cond.astype(float).rolling(window, min_periods=1).max().fillna(0).astype(bool)
+
+def calc_indicators(df, cfg):
+    df = df.copy()
+    c, h, l = df['Close'], df['High'], df['Low']
+    v = df['Volume'].fillna(0)
+    nL, nS = cfg['ema_long'], cfg['ema_short']
+
+    df['EMA_Long'] = c.ewm(span=nL, adjust=False).mean()
+    df['EMA_Short'] = c.ewm(span=nS, adjust=False).mean()
+    if len(df) &gt;= nL:
+        df.iloc[:nL, df.columns.get_loc('EMA_Long')] = np.nan
+    if len(df) &gt;= nS:
+        df.iloc[:nS, df.columns.get_loc('EMA_Short')] = np.nan
+
+    df['MACD'] = c.ewm(span=12, adjust=False).mean() - c.ewm(span=26, adjust=False).mean()
+    df['MACD_Signal'] = df['MACD'].ewm(span=9, adjust=False).mean()
+    df['MACD_Hist'] = df['MACD'] - df['MACD_Signal']
+
+    mid = c.rolling(20).mean()
+    std = c.rolling(20).std(ddof=0)
+    df['BBM'], df['BBU'], df['BBL'] = mid, mid + 2 * std, mid - 2 * std
+
+    tr = pd.concat([h - l, (h - c.shift()).abs(), (l - c.shift()).abs()], axis=1).max(axis=1)
+    df['ATR'] = tr.ewm(alpha=1 / 14, adjust=False).mean()
+    df['Vol_MA20'] = v.rolling(20).mean()
+
+    L, T, tol = cfg['macd_lookback'], cfg['bb_lookback'], cfg['bb_tolerance']
+    bull = (df['MACD'] &gt; df['MACD_Signal']) &amp; (df['MACD'].shift(1) &lt;= df['MACD_Signal'].shift(1))
+    bear = (df['MACD'] &lt; df['MACD_Signal']) &amp; (df['MACD'].shift(1) &gt;= df['MACD_Signal'].shift(1))
+    vol_ok = _recent(v &gt; df['Vol_MA20'], L)
+
+    df['B_Trend'] = c &gt; df['EMA_Long']
+    df['B_MACD'] = _recent(bull, L)
+    df['B_BB'] = _recent(l &lt;= df['BBL'] * (1 + tol), T)
+    df['B_Vol'] = vol_ok
+    df['Buy_Score'] = df[['B_Trend', 'B_MACD', 'B_BB', 'B_Vol']].sum(axis=1)
+
+    df['S_Trend'] = c &lt; df['EMA_Long']
+    df['S_MACD'] = _recent(bear, L)
+    df['S_BB'] = _recent(h &gt;= df['BBU'] * (1 - tol), T)
+    df['S_Vol'] = vol_ok
+    df['Sell_Score'] = df[['S_Trend', 'S_MACD', 'S_BB', 'S_Vol']].sum(axis=1)
+
+    gate_b = df['B_Trend'] if cfg['require_trend'] else True
+    gate_s = df['S_Trend'] if cfg['require_trend'] else True
+    df['Buy_Signal'] = df['B_MACD'] &amp; gate_b &amp; (df['Buy_Score'] &gt;= cfg['min_score'])
+    df['Sell_Signal'] = df['S_MACD'] &amp; gate_s &amp; (df['Sell_Score'] &gt;= cfg['min_score'])
+    df['Exit_Signal'] = bear | (c &lt; df['EMA_Long'])
+    return df
+
+def last_closed_pos(df, interval, code='', cfg=CONFIG_STD):
+    if not cfg['use_closed_bar'] or len(df) &lt; 2:
+        return -1
+    tz, close_h = ('Asia/Bangkok', 17) if is_thai(code) else ('America/New_York', 16)
+    now = pd.Timestamp.now(tz=tz)
+    ts = df.index[-1]
+    ts = ts.tz_convert(tz) if ts.tzinfo is not None else ts.tz_localize(tz)
+    day_close = ts.normalize() + pd.Timedelta(hours=close_h)
+    if interval == '1h':
+        closed = now &gt;= ts + pd.Timedelta(hours=1)
+    elif interval == '1d':
+        closed = now &gt;= day_close
+    elif interval == '1wk':
+        closed = now &gt;= day_close + pd.Timedelta(days=4)
+    else:
+        closed = now &gt;= ts.normalize() + pd.offsets.MonthBegin(1)
+    return -1 if closed else -2
+
+def filter_conflicts(res):
+    if res.empty:
+        return res
+    keys = set(zip(res['Symbol'], res['Timeframe'], res['Signal']))
+    opp = {'BUY': 'SELL', 'SELL': 'BUY'}
+    def bad(r):
+        i = TF_ORDER.index(r['Timeframe'])
+        return i &lt; len(TF_ORDER) - 1 and (r['Symbol'], TF_ORDER[i + 1], opp[r['Signal']]) in keys
+    return res[~res.apply(bad, axis=1)].reset_index(drop=True)
+
+# ==========================================
+# ฟังก์ชันดึงข้อมูลกลาง (Data Fetcher)
+# ==========================================
+def get_data_for_grid(symbol, interval, cfg=CONFIG_STD):
+    key = (symbol, interval, cfg['min_score'])
+    if key in RAW_DATA_CACHE:
+        raw = RAW_DATA_CACHE[key]
+        return calc_indicators(raw, cfg)
+    period = PERIOD_BY_INTERVAL.get(interval, 'max')
+    for yf_sym in dict.fromkeys([get_yf_symbol(symbol), symbol]):
+        try:
+            df = yf.download(yf_sym, interval=interval, period=period, auto_adjust=True, progress=False)
+            if df is not None and not df.empty:
+                if isinstance(df.columns, pd.MultiIndex): df.columns = df.columns.get_level_values(0)
+                df = df.dropna(subset=['Close'])
+                if len(df) &gt;= 30: return calc_indicators(df, cfg)
+        except Exception: continue
+    return None
+
+# ==========================================
+# 1. กราฟ 4 ช่อง (2x2 Grid) หลัก
+# ==========================================
+def plot_all_timeframes_grid(symbol):
+    fig = plt.figure(figsize=(16, 11))
+    tf_keys = [('Hour', '1h'), ('Day', '1d'), ('Week', '1wk'), ('Month', '1mo')]
+    positions = [(0, 0), (0, 1), (1, 0), (1, 1)]
+    outer_grid = mpl.gridspec.GridSpec(2, 2, wspace=0.18, hspace=0.25)
+
+    for (tf_name, interval), pos in zip(tf_keys, positions):
+        df = get_data_for_grid(symbol, interval, CONFIG_STD)
+        if df is None or df.empty:
+            ax_empty = fig.add_subplot(outer_grid[pos[0], pos[1]])
+            ax_empty.text(0.5, 0.5, f"ไม่พบข้อมูล {tf_name}", horizontalalignment='center', verticalalignment='center', transform=ax_empty.transAxes)
+            ax_empty.set_title(f"{symbol} - {TF_LABELS.get(interval, interval)}")
+            continue
+
+        p = df.tail(150)
+        buys = p[p['Buy_Signal'] &amp; ~p['Buy_Signal'].shift(1, fill_value=False)]
+        sells = p[p['Sell_Signal'] &amp; ~p['Sell_Signal'].shift(1, fill_value=False)]
+
+        inner_grid = mpl.gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=outer_grid[pos[0], pos[1]], height_ratios=[3, 1.1], hspace=0.08)
+        ax_price = fig.add_subplot(inner_grid[0])
+        ax_macd = fig.add_subplot(inner_grid[1], sharex=ax_price)
+
+        ax_price.plot(p.index, p['Close'], label='Price', color='black', lw=1.1)
+        ax_price.plot(p.index, p['EMA_Long'], label=f"EMA {CONFIG_STD['ema_long']}", color='orange', ls='--', lw=1.2)
+        ax_price.plot(p.index, p['EMA_Short'], label=f"EMA {CONFIG_STD['ema_short']}", color='purple', ls=':', lw=1.2)
+        ax_price.plot(p.index, p['BBU'], color='blue', alpha=0.25, lw=0.8, label='Bollinger Bands')
+        ax_price.plot(p.index, p['BBL'], color='blue', alpha=0.25, lw=0.8)
+        ax_price.fill_between(p.index, p['BBL'], p['BBU'], color='blue', alpha=0.04)
+
+        if not buys.empty:
+            ax_price.scatter(buys.index, buys['Close'], marker='^', color='green', s=100, label='BUY', zorder=5)
+        if not sells.empty:
+            ax_price.scatter(sells.index, sells['Close'], marker='v', color='red', s=100, label='SELL', zorder=5)
+
+        ax_price.set_title(f"{symbol} - {TF_LABELS.get(interval, interval)}", fontsize=11, fontweight='bold')
+        ax_price.legend(loc='upper left', fontsize=7, framealpha=0.8)
+        ax_price.grid(True, ls='--', alpha=0.35)
+        plt.setp(ax_price.get_xticklabels(), visible=False)
+
+        ax_macd.plot(p.index, p['MACD'], label='MACD', color='green', lw=1.1)
+        ax_macd.plot(p.index, p['MACD_Signal'], label='Signal', color='red', lw=1.1)
+        ax_macd.bar(p.index, p['MACD_Hist'], color=np.where(p['MACD_Hist'] &gt;= 0, '#93c47d', '#f4cccc'), width=0.8, alpha=0.7)
+        ax_macd.axhline(0, color='gray', ls=':', alpha=0.7)
+        ax_macd.legend(loc='upper left', fontsize=6, framealpha=0.8)
+        ax_macd.grid(True, ls='--', alpha=0.35)
+        ax_macd.tick_params(axis='x', rotation=15, labelsize=8)
+
+    plt.show()
+
+# ==========================================
+# 2. กราฟอินดิเคเตอร์เชิงลึก (3 Subplots)
+# ==========================================
+def plot_stock_technical(symbol, interval='1d'):
+    df = get_data_for_grid(symbol, interval, CONFIG_STD)
+    if df is None:
+        print(f"? ไม่พบข้อมูลราคาสำหรับ {symbol} ({interval})")
+        return
+
+    p = df.tail(200)
+    buys = p[p['Buy_Signal'] &amp; ~p['Buy_Signal'].shift(1, fill_value=False)]
+    sells = p[p['Sell_Signal'] &amp; ~p['Sell_Signal'].shift(1, fill_value=False)]
+
+    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(13, 9), sharex=True,
+                                        gridspec_kw={'height_ratios': [3, 1.2, 0.8]})
+    ax1.plot(p.index, p['Close'], label='Price', color='black', lw=1.2)
+    ax1.plot(p.index, p['EMA_Long'], label=f"EMA {CONFIG_STD['ema_long']}", color='orange', ls='--', lw=1.5)
+    ax1.plot(p.index, p['EMA_Short'], label=f"EMA {CONFIG_STD['ema_short']}", color='purple', ls=':', alpha=0.7)
+    ax1.plot(p.index, p['BBU'], color='blue', alpha=0.3, label='Bollinger Bands')
+    ax1.plot(p.index, p['BBL'], color='blue', alpha=0.3)
+    ax1.fill_between(p.index, p['BBL'], p['BBU'], color='blue', alpha=0.04)
+    if not buys.empty:
+        ax1.scatter(buys.index, buys['Close'], marker='^', color='green', s=130, label='BUY', zorder=5)
+    if not sells.empty:
+        ax1.scatter(sells.index, sells['Close'], marker='v', color='red', s=130, label='SELL', zorder=5)
+    ax1.set_title(f"Confluence Strategy: {symbol} [{TF_LABELS.get(interval, interval)}]",
+                  fontsize=13, fontweight='bold')
+    ax1.legend(loc='upper left', fontsize=8)
+    ax1.grid(True, ls='--', alpha=0.4)
+
+    ax2.plot(p.index, p['MACD'], label='MACD', color='green')
+    ax2.plot(p.index, p['MACD_Signal'], label='Signal', color='red')
+    ax2.bar(p.index, p['MACD_Hist'], color=np.where(p['MACD_Hist'] &gt;= 0, 'green', 'red'), alpha=0.3)
+    ax2.axhline(0, color='black', ls=':', alpha=0.5)
+    ax2.legend(loc='upper left', fontsize=8)
+    ax2.grid(True, ls='--', alpha=0.4)
+
+    ax3.bar(p.index, p['Volume'], color='gray', alpha=0.5)
+    ax3.plot(p.index, p['Vol_MA20'], color='orange', lw=1, label='Vol MA20')
+    ax3.legend(loc='upper left', fontsize=8)
+    ax3.grid(True, ls='--', alpha=0.4)
+
+    plt.tight_layout()
+    plt.show()
+
+# ==========================================
+# 3. ฟังก์ชันเปรียบเทียบกราฟ
+# ==========================================
+def plot_multi_comparison(selected_symbols, interval, title_text):
+    plt.figure(figsize=(13, 6))
+    plotted = 0
+    for sym in selected_symbols:
+        df = get_data_for_grid(sym, interval, CONFIG_STD)
+        if df is None or df.empty: continue
+        p = df.tail(100).copy()
+        if len(p) &gt; 0:
+            norm_pct = ((p['Close'] / p['Close'].iloc[0]) - 1) * 100
+            plt.plot(p.index, norm_pct, label=sym, lw=1.5)
+            plotted += 1
+
+    plt.title(f"Comparison Chart ({TF_LABELS.get(interval, interval)}): {title_text}", fontsize=13, fontweight='bold')
+    plt.xlabel("Date", fontsize=10)
+    plt.ylabel("Return (%) from Start", fontsize=10)
+    plt.axhline(0, color='black', ls='--', alpha=0.5)
+    if plotted &gt; 0: plt.legend(loc='upper left', fontsize=8, ncol=2)
+    plt.grid(True, ls='--', alpha=0.4)
+    plt.tight_layout()
+    plt.show()
+
+# ==========================================
+# UI Controls &amp; Layout
+# ==========================================
+source_dd = widgets.Dropdown(options=['ออนไลน์ (SET, mai, DR, Forex)', 'ไฟล์ CSV', 'ไฟล์ Excel'], value='ออนไลน์ (SET, mai, DR, Forex)', description='แหล่งข้อมูล:', layout=widgets.Layout(width='380px'))
+group_dd = widgets.Dropdown(options=['ทั้งหมดทุกกลุ่ม', 'เฉพาะ SET', 'เฉพาะ mai', 'เฉพาะ DR', 'เฉพาะ Forex'], value='ทั้งหมดทุกกลุ่ม', description='เลือกกลุ่มหุ้น:', layout=widgets.Layout(width='380px'))
+tf_select_dd = widgets.Dropdown(options=['ทั้งหมดทุก Timeframe', 'Hour (1h)', 'Day (1d)', 'Week (1wk)', 'Month (1mo)'], value='ทั้งหมดทุก Timeframe', description='เลือก Timeframe:', layout=widgets.Layout(width='380px'))
+file_upload = widgets.FileUpload(accept='.csv, .xlsx, .xls', description='อัปโหลดไฟล์:', layout=widgets.Layout(width='380px'))
+use_custom_date = widgets.Checkbox(value=False, description='กำหนดช่วงวันที่สแกนเอง')
+start_date_picker = widgets.DatePicker(description='วันเริ่มต้น:', value=pd.to_datetime('2023-01-01').date())
+end_date_picker = widgets.DatePicker(description='วันสิ้นสุด:', value=pd.Timestamp.today().date())
+
+start_dual_scan_btn = widgets.Button(description='?? สแกนครั้งเดียว (แสดง 2 แบบ)', button_style='success', layout=widgets.Layout(width='240px', height='40px'))
+stop_scan_btn = widgets.Button(description='?? หยุดสแกน', button_style='danger', layout=widgets.Layout(width='130px', height='40px'))
+
+scan_control_output = widgets.Output()
+main_app_output = widgets.Output()
+
+custom_stocks_textarea = widgets.Textarea(placeholder='พิมพ์ชื่อหุ้นเว้นวรรค เช่น PTT KBANK ADVANC EURUSD=X NVDA', description='รายชื่อหุ้น:', layout=widgets.Layout(width='100%', height='80px'))
+shortcut_box_label = widgets.HTML('&lt;b&gt;?? ปุ่มลัดหุ้นที่คุณพิมพ์:&lt;/b&gt;')
+shortcut_buttons_container = widgets.VBox([], layout=widgets.Layout(margin='5px 0'))
+start_custom_dual_btn = widgets.Button(description='? สแกนหุ้นพิมพ์เอง (แสดง 2 แบบ)', button_style='warning', layout=widgets.Layout(width='240px', height='40px'))
+custom_scan_output = widgets.Output()
+
+STOP_SCAN_FLAG = False
+def on_stop_click(_):
+    global STOP_SCAN_FLAG
+    STOP_SCAN_FLAG = True
+    with scan_control_output:
+        print("\n?? หยุดการสแกนแล้ว")
+    with custom_scan_output:
+        print("\n?? หยุดการสแกนแล้ว")
+stop_scan_btn.on_click(on_stop_click)
+
+left_control_vbox = widgets.VBox([
+    widgets.HTML('&lt;h4&gt;?? ตั้งค่าสแกนกลุ่ม/ไฟล์ (Dual Mode)&lt;/h4&gt;'),
+    source_dd, group_dd, tf_select_dd, file_upload, use_custom_date,
+    widgets.HBox([start_date_picker, end_date_picker]),
+    widgets.HBox([start_dual_scan_btn, stop_scan_btn]),
+    scan_control_output
+])
+
+right_control_vbox = widgets.VBox([
+    widgets.HTML('&lt;h4&gt;?? สแกนหุ้นพิมพ์เองอิสระ (Dual Mode)&lt;/h4&gt;'),
+    custom_stocks_textarea, shortcut_box_label, shortcut_buttons_container,
+    start_custom_dual_btn, custom_scan_output
+])
+
+display(widgets.HBox([left_control_vbox, widgets.HTML('&lt;div style="border-left: 2px solid #007bff; margin: 0 15px;"&gt;&lt;/div&gt;'), right_control_vbox], layout=widgets.Layout(align_items='flex-start')))
+
+RAW_DATA_CACHE = {}
+result_df_std = pd.DataFrame()
+result_df_fast = pd.DataFrame()
+stock_info = {}
+yf_to_code = {}
+
+def update_shortcut_buttons(change=None):
+    text_val = custom_stocks_textarea.value
+    raw_list = text_val.replace(',', ' ').split()
+    unique_syms = list(dict.fromkeys([normalize_symbol(s) for s in raw_list if s.strip()]))
+    buttons = [widgets.Button(description=sym, button_style='info', layout=widgets.Layout(width='85px', height='30px', margin='2px')) for sym in unique_syms]
+    for b, sym in zip(buttons, unique_syms):
+        b.on_click(lambda _, s=sym: choose_shortcut_symbol(s))
+    rows = [widgets.HBox(buttons[i:i+5], layout=widgets.Layout(margin='0 0 2px 0')) for i in range(0, len(buttons), 5)]
+    shortcut_buttons_container.children = rows
+
+custom_stocks_textarea.observe(update_shortcut_buttons, names='value')
+
+def choose_shortcut_symbol(sym):
+    if 'sym_dd' in globals() and sym_dd is not None:
+        if sym not in sym_dd.options:
+            sym_dd.options = list(sym_dd.options) + [sym]
+        sym_dd.value = sym
+
+# ==========================================
+# ฟังก์ชันข่าวสารหุ้นอัตโนมัติ (Google News)
+# ==========================================
+def get_stock_news(symbol="SET"):
+    query = f"หุ้น {symbol}"
+    rss_url = f"https://news.google.com/rss/search?q={urllib.parse.quote(query)}&amp;hl=th&amp;gl=TH&amp;ceid=TH:th"
+    feed = feedparser.parse(rss_url)
+    return [{'title': entry.title, 'link': entry.link, 'published': entry.published} for entry in feed.entries[:5]]
+
+output_shared_news = widgets.Output()
+def update_shared_news(sym):
+    with output_shared_news:
+        clear_output(wait=True)
+        sym = sym.strip().upper()
+        try:
+            items = get_stock_news(sym)
+            if not items:
+                print("?? ไม่พบข่าวสารในช่วงนี้")
+                return
+            html = f"&lt;h3&gt;?? ข่าวสารล่าสุด: {sym}&lt;/h3&gt;&lt;ul&gt;"
+            for item in items:
+                html += f"&lt;li&gt;&lt;b&gt;&lt;a href='{item['link']}' target='_blank'&gt;{item['title']}&lt;/a&gt;&lt;/b&gt;&lt;br&gt;&lt;small style='color:gray;'&gt;เผยแพร่เมื่อ: {item['published']}&lt;/small&gt;&lt;/li&gt;&lt;br&gt;"
+            display(widgets.HTML(html + "&lt;/ul&gt;"))
+        except Exception as e:
+            print(f"เกิดข้อผิดพลาดในการดึงข่าว: {e}")
+
+# ==========================================
+# ฟังก์ชันสแกนรอบเดียว แยกผลลัพธ์เป็น 2 แบบ
+# ==========================================
+def execute_dual_scanning_task(is_custom=False):
+    global STOP_SCAN_FLAG, result_df_std, result_df_fast, stock_info, yf_to_code, RAW_DATA_CACHE
+    STOP_SCAN_FLAG = False
+    RAW_DATA_CACHE.clear()
+
+    active_output = custom_scan_output if is_custom else scan_control_output
+    with active_output:
+        clear_output()
+        print("กำลังดาวน์โหลดและเตรียมข้อมูลราคาหุ้น...")
+
+    if is_custom:
+        raw_text = custom_stocks_textarea.value
+        custom_list = [normalize_symbol(s) for s in raw_text.replace(',', ' ').split() if s.strip()]
+        if not custom_list:
+            with active_output:
+                print("?? กรุณาใส่ชื่อหุ้นในช่อง 'รายชื่อหุ้น'")
+            return
+        stock_info = {s: {"name": f"{s} (Custom)", "category": "Custom"} for s in custom_list}
+    else:
+        selected_source = source_dd.value
+        if selected_source == 'ออนไลน์ (SET, mai, DR, Forex)':
+            selected_group = group_dd.value
+            target_stocks = {}
+            if selected_group in ['ทั้งหมดทุกกลุ่ม', 'เฉพาะ SET']:
+                for s in set_stocks: target_stocks[s] = {"name": f"{s} (SET)", "category": "SET"}
+            if selected_group in ['ทั้งหมดทุกกลุ่ม', 'เฉพาะ mai']:
+                for s in mai_stocks: target_stocks[s] = {"name": f"{s} (mai)", "category": "mai"}
+            if selected_group in ['ทั้งหมดทุกกลุ่ม', 'เฉพาะ DR']:
+                for s in dr_stocks: target_stocks[s] = {"name": f"{s} (DR)", "category": "DR"}
+            if selected_group in ['ทั้งหมดทุกกลุ่ม', 'เฉพาะ Forex']:
+                for s in forex_stocks: target_stocks[s] = {"name": f"{s} (Forex)", "category": "Forex"}
+            stock_info = target_stocks
+        else:
+            uploaded_files = file_upload.value
+            if not uploaded_files:
+                with active_output:
+                    print("?? กรุณาอัปโหลดไฟล์ CSV หรือ Excel")
+                return
+            try:
+                file_info = uploaded_files[0] if isinstance(uploaded_files, tuple) else uploaded_files[list(uploaded_files.keys())[0]]
+                content = file_info['content'] if isinstance(file_info, dict) else file_info.content
+                filename = file_info['name'] if isinstance(file_info, dict) else list(uploaded_files.keys())[0]
+                df_file = pd.read_csv(io.BytesIO(content)) if filename.endswith('.csv') else pd.read_excel(io.BytesIO(content))
+                col = next((c for c in df_file.columns if str(c).strip().lower() in ['symbol', 'ticker', 'stock', 'code', 'หุ้น']), df_file.columns[0])
+                symbols = df_file[col].dropna().astype(str).str.strip().str.upper().tolist()
+                stock_info = {s: {"name": f"{s} (Uploaded)", "category": "Upload"} for s in symbols}
+            except Exception as e:
+                with active_output:
+                    print(f"? อ่านไฟล์ผิดพลาด: {e}")
+                return
+
+    if not stock_info:
+        with active_output:
+            print("?? ไม่พบรายชื่อหุ้น")
+        return
+
+    yf_to_code = {get_yf_symbol(s): s for s in stock_info}
+
+    custom_start = str(start_date_picker.value) if use_custom_date.value else None
+    custom_end = str(end_date_picker.value) if use_custom_date.value else None
+    selected_tf_choice = tf_select_dd.value
+    active_tfs = list(TIMEFRAMES.items()) if 'ทั้งหมดทุก' in selected_tf_choice else [(selected_tf_choice.split()[0], TIMEFRAMES[selected_tf_choice.split()[0]])]
+
+    for tf_name, (interval, period) in active_tfs:
+        if STOP_SCAN_FLAG:
+            break
+        with active_output:
+            clear_output(wait=True)
+            print(f"กำลังดาวน์โหลด Timeframe: {tf_name} ({interval}) ...")
+
+        yf_symbols = list(yf_to_code)
+        size = 40
+        for i in range(0, len(yf_symbols), size):
+            if STOP_SCAN_FLAG:
+                break
+            chunk = yf_symbols[i:i+size]
+            try:
+                data = yf.download(chunk, interval=interval, start=custom_start, end=custom_end, group_by='ticker', auto_adjust=True, progress=False, threads=True) if use_custom_date.value else yf.download(chunk, interval=interval, period=period, group_by='ticker', auto_adjust=True, progress=False, threads=True)
+            except Exception:
+                continue
+            if data is None or data.empty:
+                continue
+            for t in chunk:
+                try:
+                    d = data[t].copy() if isinstance(data.columns, pd.MultiIndex) and t in data.columns.get_level_values(0) else data.copy()
+                    d = d.dropna(subset=['Close'])
+                    if len(d) &gt;= 30:
+                        RAW_DATA_CACHE[(t, interval)] = d
+                except Exception:
+                    pass
+            time.sleep(0.5)
+
+    if STOP_SCAN_FLAG:
+        with active_output:
+            print("\n?? หยุดการสแกนแล้ว")
+        return
+
+    results_std, results_fast = [], []
+    for (yf_sym, interval), raw in RAW_DATA_CACHE.items():
+        code = yf_to_code.get(yf_sym)
+        if not code:
+            continue
+        tf_name = [k for k, v in TIMEFRAMES.items() if v[0] == interval][0]
+
+        try:
+            df_s = calc_indicators(raw, CONFIG_STD)
+            pos_s = last_closed_pos(df_s, interval, code, CONFIG_STD)
+            last_s = df_s.iloc[pos_s]
+            for side, p in (('BUY', 'B'), ('SELL', 'S')):
+                if last_s[f"{'Buy' if side == 'BUY' else 'Sell'}_Signal"]:
+                    score = int(last_s[f"{'Buy' if side == 'BUY' else 'Sell'}_Score"])
+                    results_std.append({
+                        'Symbol': code, 'Category': stock_info[code]['category'], 'Timeframe': tf_name,
+                        'Price': round(float(last_s['Close']), 2), 'Date': df_s.index[pos_s].strftime('%Y-%m-%d'),
+                        'Signal': side, 'Score': f"{score}/4", '_score': score
+                    })
+        except Exception:
+            pass
+
+        try:
+            df_f = calc_indicators(raw, CONFIG_FAST)
+            pos_f = last_closed_pos(df_f, interval, code, CONFIG_FAST)
+            last_f = df_f.iloc[pos_f]
+            for side, p in (('BUY', 'B'), ('SELL', 'S')):
+                if last_f[f"{'Buy' if side == 'BUY' else 'Sell'}_Signal"]:
+                    score = int(last_f[f"{'Buy' if side == 'BUY' else 'Sell'}_Score"])
+                    results_fast.append({
+                        'Symbol': code, 'Category': stock_info[code]['category'], 'Timeframe': tf_name,
+                        'Price': round(float(last_f['Close']), 2), 'Date': df_f.index[pos_f].strftime('%Y-%m-%d'),
+                        'Signal': side, 'Score': f"{score}/4", '_score': score
+                    })
+        except Exception:
+            pass
+
+    result_df_std = filter_conflicts(pd.DataFrame(results_std))
+    result_df_fast = filter_conflicts(pd.DataFrame(results_fast))
+
+    with active_output:
+        clear_output()
+        print(f"? สแกนเสร็จสิ้น! แบบมาตรฐานเจอ {len(result_df_std)} รายการ | แบบเข้าไวขึ้นเจอ {len(result_df_fast)} รายการ")
+
+    refresh_dashboard_data()
+
+start_dual_scan_btn.on_click(lambda b: execute_dual_scanning_task(is_custom=False))
+start_custom_dual_btn.on_click(lambda b: execute_dual_scanning_task(is_custom=True))
+
+# ==========================================
+# สร้าง Dashboard หลักและคอมโพเนนต์ (Persistent VBox Containers)
+# ==========================================
+sym_dd = widgets.Dropdown(options=['PTT'], value='PTT', description='เลือกหุ้น:', layout=widgets.Layout(width='280px'))
+ticker_input = widgets.Text(placeholder='เช่น PTT, EURUSD=X', description='เพิ่มหุ้น:', layout=widgets.Layout(width='280px'))
+add_btn = widgets.Button(description='แสดง 4 กราฟ', icon='plus', button_style='info', layout=widgets.Layout(width='120px'))
+status_label = widgets.HTML(value="", layout=widgets.Layout(margin='0 0 0 15px', align_self='center'))
+grid_output = widgets.Output()
+
+# สร้าง VBox ถาวรประจำแต่ละแท็บเพื่อป้องกันปัญหา Widget ไม่เรนเดอร์
+std_tab_content = widgets.VBox([widgets.HTML('&lt;p style="color:gray;"&gt;ยังไม่มีข้อมูลการสแกน&lt;/p&gt;')])
+fast_tab_content = widgets.VBox([widgets.HTML('&lt;p style="color:gray;"&gt;ยังไม่มีข้อมูลการสแกน&lt;/p&gt;')])
+confirmed_tab_content = widgets.VBox([widgets.HTML('&lt;p style="color:gray;"&gt;ยังไม่มีข้อมูลการสแกน&lt;/p&gt;')])
+
+result_tabs = widgets.Tab(children=[std_tab_content, fast_tab_content, confirmed_tab_content])
+result_tabs.set_title(0, '?? โหมดมาตรฐาน')
+result_tabs.set_title(1, '? โหมดเข้าไวขึ้น (Fast)')
+result_tabs.set_title(2, '?? ยืนยันสัญญาณร่วมกัน')
+
+# กราฟอินดิเคเตอร์เชิงลึก
+ind_sym_dd = widgets.Dropdown(options=['PTT'], value='PTT', description='เลือกหุ้น:', layout=widgets.Layout(width='260px'))
+ind_text_input = widgets.Text(placeholder='พิมพ์ชื่อหุ้น เช่น PTT', description='พิมพ์หุ้นเอง:', layout=widgets.Layout(width='260px'))
+ind_tf_dd = widgets.Dropdown(options=[(v, k) for k, v in TF_LABELS.items()], value='1d', description='กรอบเวลา:', layout=widgets.Layout(width='240px'))
+ind_output = widgets.Output()
+
+# เปรียบเทียบกราฟทั้ง 4 Timeframe
+comp_hour_out = widgets.Output()
+comp_day_out = widgets.Output()
+comp_week_out = widgets.Output()
+comp_month_out = widgets.Output()
+
+def create_persistent_comparison_panel(target_tf, tf_label_thai, out_comp):
+    state = {'selected': []}
+    clear_btn = widgets.Button(description='?? เคลียร์กราฟทั้งหมด', button_style='warning', layout=widgets.Layout(width='140px', height='32px', margin='5px 0'))
+
+    sell_box = widgets.VBox([widgets.HTML('&lt;b&gt;?? Sell&lt;/b&gt;')])
+    buy_box = widgets.VBox([widgets.HTML('&lt;b&gt;?? Buy&lt;/b&gt;')])
+
+    left_panel = widgets.VBox([clear_btn, widgets.HBox([sell_box, buy_box])])
+
+    def redraw():
+        with out_comp:
+            clear_output(wait=True)
+            if not state['selected']:
+                print(f'?? ยังไม่ได้เลือกหุ้นสำหรับเปรียบเทียบในกรอบเวลา {tf_label_thai}')
+                return
+            plot_multi_comparison(state['selected'], TF_CODE[target_tf], f"เปรียบเทียบ ({tf_label_thai})")
+
+    clear_btn.on_click(lambda _: (state.update({'selected': []}), redraw()))
+
+    def update_buttons(res_df):
+        if res_df.empty:
+            buy_syms, sell_syms = [], []
+        else:
+            tf_sub = res_df[res_df['Timeframe'] == target_tf]
+            buy_syms = sorted(tf_sub[tf_sub['Signal'] == 'BUY']['Symbol'].unique().tolist())
+            sell_syms = sorted(tf_sub[tf_sub['Signal'] == 'SELL']['Symbol'].unique().tolist())
+
+        def update_comp(sym):
+            if sym not in state['selected']: state['selected'].append(sym)
+            else: state['selected'].remove(sym)
+            redraw()
+
+        sell_buttons = [widgets.Button(description=f"?? {s}", button_style='danger', layout=widgets.Layout(width='140px', height='30px', margin='2px')) for s in sell_syms]
+        for b, s in zip(sell_buttons, sell_syms): b.on_click(lambda _, sym=s: update_comp(sym))
+
+        buy_buttons = [widgets.Button(description=f"?? {s}", button_style='success', layout=widgets.Layout(width='140px', height='30px', margin='2px')) for s in buy_syms]
+        for b, s in zip(buy_buttons, buy_syms): b.on_click(lambda _, sym=s: update_comp(sym))
+
+        sell_box.children = [widgets.HTML('&lt;b&gt;?? Sell&lt;/b&gt;')] + sell_buttons
+        buy_box.children = [widgets.HTML('&lt;b&gt;?? Buy&lt;/b&gt;')] + buy_buttons
+
+    redraw()
+    panel = widgets.VBox([widgets.HBox([left_panel, out_comp])])
+    panel.update_buttons = update_buttons
+    return panel
+
+hour_panel = create_persistent_comparison_panel('Hour', 'รายชั่วโมง', comp_hour_out)
+day_panel = create_persistent_comparison_panel('Day', 'รายวัน', comp_day_out)
+week_panel = create_persistent_comparison_panel('Week', 'รายสัปดาห์', comp_week_out)
+month_panel = create_persistent_comparison_panel('Month', 'รายเดือน', comp_month_out)
+
+extra_features_accordion = widgets.Accordion(children=[
+    widgets.VBox([widgets.HBox([ind_sym_dd, ind_text_input, ind_tf_dd]), ind_output]),
+    hour_panel, day_panel, week_panel, month_panel
+])
+extra_features_accordion.set_title(0, '?? กราฟอินดิเคเตอร์เชิงลึกรายตัว')
+extra_features_accordion.set_title(1, '?? เปรียบเทียบกราฟ (รายชั่วโมง)')
+extra_features_accordion.set_title(2, '?? เปรียบเทียบกราฟ (รายวัน)')
+extra_features_accordion.set_title(3, '?? เปรียบเทียบกราฟ (รายสัปดาห์)')
+extra_features_accordion.set_title(4, '?? เปรียบเทียบกราฟ (รายเดือน)')
+extra_features_accordion.selected_index = None
+
+news_input = widgets.Text(value='PTT', description='ค้นหาข่าวหุ้น:', layout=widgets.Layout(width='300px'))
+news_btn = widgets.Button(description='?? โหลดข่าวสาร', button_style='warning', layout=widgets.Layout(width='140px'))
+news_input.on_submit(lambda _: update_shared_news(news_input.value))
+news_btn.on_click(lambda _: update_shared_news(news_input.value))
+
+news_panel = widgets.VBox([
+    widgets.HTML('&lt;hr&gt;&lt;h2&gt;?? ข่าวสารและบทวิเคราะห์หุ้นล่าสุด&lt;/h2&gt;'),
+    widgets.HBox([news_input, news_btn]),
+    output_shared_news
+])
+
+split_panel = widgets.VBox([
+    widgets.HTML('&lt;h2&gt;??? แผงควบคุมกราฟ 4 เฟรม&lt;/h2&gt;'),
+    widgets.HBox([ticker_input, add_btn]),
+    widgets.HBox([sym_dd, status_label]),
+    grid_output
+])
+
+# ฟังก์ชันอัปเดตข้อมูลภายใน UI ผ่าน .children ของ VBox ถาวร
+def refresh_dashboard_data():
+    global sym_dd
+    combined_df = pd.concat([result_df_std, result_df_fast], ignore_index=True)
+    all_symbols = sorted(list(set(combined_df['Symbol'].unique().tolist()))) if not combined_df.empty else ['PTT']
+
+    sym_dd.options = all_symbols
+    ind_sym_dd.options = all_symbols
+    if all_symbols:
+        sym_dd.value = all_symbols[0]
+        ind_sym_dd.value = all_symbols[0]
+
+    def create_shortcut_box(res_df, title_text):
+        if res_df.empty:
+            return widgets.HTML(f'&lt;p style="color:gray;"&gt;{title_text}: ไม่พบหุ้นเข้าเงื่อนไข&lt;/p&gt;')
+
+        score_col = 'Score' if 'Score' in res_df.columns else ('Score_std' if 'Score_std' in res_df.columns else None)
+
+        buys, sells = [], []
+        for _, r in res_df.drop_duplicates(subset=['Symbol', 'Timeframe', 'Signal']).iterrows():
+            sym = r['Symbol']
+            tf = r['Timeframe']
+            sig = r['Signal']
+            score = r.get(score_col, '-') if score_col else '-'
+
+            item = {'Symbol': sym, 'Timeframe': tf, 'Score': score}
+            if sig == 'BUY':
+                buys.append(item)
+            elif sig == 'SELL':
+                sells.append(item)
+
+        def choose_sym(symbol):
+            sym = normalize_symbol(symbol)
+            if sym not in sym_dd.options:
+                sym_dd.options = list(sym_dd.options) + [sym]
+            sym_dd.value = sym
+            ind_sym_dd.value = sym
+
+        box_content = [widgets.HTML(f'&lt;h4&gt;{title_text}&lt;/h4&gt;')]
+
+        if buys:
+            b_btns = []
+            for r in buys:
+                btn = widgets.Button(description=f"?? {r['Symbol']} ({r['Timeframe']}) [{r['Score']}]", button_style='success', layout=widgets.Layout(width='170px', height='32px', margin='2px'))
+                btn.on_click(lambda _, s=r['Symbol']: choose_sym(s))
+                b_btns.append(btn)
+            box_content.append(widgets.HTML('&lt;b&gt;?? สัญญาณซื้อ (BUY):&lt;/b&gt;'))
+            box_content.append(widgets.VBox([widgets.HBox(b_btns[i:i+4]) for i in range(0, len(b_btns), 4)]))
+
+        if sells:
+            s_btns = []
+            for r in sells:
+                btn = widgets.Button(description=f"?? {r['Symbol']} ({r['Timeframe']}) [{r['Score']}]", button_style='danger', layout=widgets.Layout(width='170px', height='32px', margin='2px'))
+                btn.on_click(lambda _, s=r['Symbol']: choose_sym(s))
+                s_btns.append(btn)
+            box_content.append(widgets.HTML('&lt;b&gt;?? สัญญาณขาย (SELL):&lt;/b&gt;'))
+            box_content.append(widgets.VBox([widgets.HBox(s_btns[i:i+4]) for i in range(0, len(s_btns), 4)]))
+
+        return widgets.VBox(box_content)
+
+    # อัปเดตแท็บโหมดมาตรฐาน
+    if not result_df_std.empty:
+        df_std_disp = result_df_std.drop(columns=['_score'], errors='ignore').reset_index(drop=True)
+        table_std = widgets.Output()
+        with table_std:
+            display(df_std_disp)
+        shortcut_std = create_shortcut_box(result_df_std, '?? ปุ่มลัดหุ้นโหมดมาตรฐาน')
+        std_tab_content.children = [widgets.HTML('&lt;h3&gt;?? โหมดมาตรฐาน (Standard Strategy)&lt;/h3&gt;'), table_std, widgets.HTML('&lt;hr&gt;'), shortcut_std]
+    else:
+        std_tab_content.children = [widgets.HTML('&lt;h3&gt;?? โหมดมาตรฐาน (Standard Strategy)&lt;/h3&gt;'), widgets.HTML('&lt;p style="color:gray;"&gt;? ไม่พบหุ้นเข้าเงื่อนไขโหมดมาตรฐาน&lt;/p&gt;')]
+
+    # อัปเดตแท็บโหมด Fast
+    if not result_df_fast.empty:
+        df_fast_disp = result_df_fast.drop(columns=['_score'], errors='ignore').reset_index(drop=True)
+        table_fast = widgets.Output()
+        with table_fast:
+            display(df_fast_disp)
+        shortcut_fast = create_shortcut_box(result_df_fast, '?? ปุ่มลัดหุ้นโหมดเข้าไวขึ้น')
+        fast_tab_content.children = [widgets.HTML('&lt;h3&gt;? โหมดเข้าไวขึ้น (Fast Entry Strategy)&lt;/h3&gt;'), table_fast, widgets.HTML('&lt;hr&gt;'), shortcut_fast]
+    else:
+        fast_tab_content.children = [widgets.HTML('&lt;h3&gt;? โหมดเข้าไวขึ้น (Fast Entry Strategy)&lt;/h3&gt;'), widgets.HTML('&lt;p style="color:gray;"&gt;? ไม่พบหุ้นเข้าเงื่อนไขโหมดเข้าไวขึ้น&lt;/p&gt;')]
+
+    # อัปเดตแท็บยืนยันสัญญาณ
+    if not result_df_std.empty and not result_df_fast.empty:
+        merged_conf = pd.merge(
+            result_df_std, result_df_fast,
+            on=['Symbol', 'Category', 'Timeframe', 'Signal'],
+            suffixes=('_std', '_fast')
+        )
+        if not merged_conf.empty:
+            display_conf = merged_conf[['Symbol', 'Category', 'Timeframe', 'Price_std', 'Date_std', 'Signal', 'Score_std', 'Score_fast']].copy()
+            display_conf.columns = ['Symbol', 'Category', 'Timeframe', 'Price', 'Date', 'Signal', 'Score (Std)', 'Score (Fast)']
+            table_conf = widgets.Output()
+            with table_conf:
+                display(display_conf.reset_index(drop=True))
+            conf_shortcut_df = merged_conf.rename(columns={'Price_std': 'Price', 'Score_std': 'Score'})
+            shortcut_conf = create_shortcut_box(conf_shortcut_df, '?? ปุ่มลัดหุ้นที่สัญญาณตรงกันทั้ง 2 โหมด')
+            confirmed_tab_content.children = [widgets.HTML('&lt;h3&gt;?? หน้าต่างยืนยันสัญญาณ (หุ้นที่ตรงกันทั้ง 2 โหมด)&lt;/h3&gt;'), table_conf, widgets.HTML('&lt;hr&gt;'), shortcut_conf]
+        else:
+            confirmed_tab_content.children = [widgets.HTML('&lt;h3&gt;?? หน้าต่างยืนยันสัญญาณ (หุ้นที่ตรงกันทั้ง 2 โหมด)&lt;/h3&gt;'), widgets.HTML('&lt;p style="color:gray;"&gt;? ไม่พบหุ้นที่ให้สัญญาณตรงกันทั้ง 2 โหมดในรอบนี้&lt;/p&gt;')]
+    else:
+        confirmed_tab_content.children = [widgets.HTML('&lt;h3&gt;?? หน้าต่างยืนยันสัญญาณ (หุ้นที่ตรงกันทั้ง 2 โหมด)&lt;/h3&gt;'), widgets.HTML('&lt;p style="color:gray;"&gt;?? ข้อมูลผลลัพธ์ของโหมดใดโหมดหนึ่งยังว่างอยู่&lt;/p&gt;')]
+
+    hour_panel.update_buttons(combined_df)
+    day_panel.update_buttons(combined_df)
+    week_panel.update_buttons(combined_df)
+    month_panel.update_buttons(combined_df)
+
+def refresh_grid(*_):
+    with grid_output:
+        clear_output(wait=True)
+        if sym_dd.value:
+            plot_all_timeframes_grid(sym_dd.value)
+    if sym_dd.value:
+        update_shared_news(sym_dd.value)
+
+def choose_sym(symbol):
+    sym = normalize_symbol(symbol)
+    if sym not in sym_dd.options:
+        sym_dd.options = list(sym_dd.options) + [sym]
+    sym_dd.value = sym
+    set_tech_symbol(sym)
+    refresh_grid()
+
+def set_tech_symbol(symbol):
+    sym = normalize_symbol(symbol)
+    if sym not in ind_sym_dd.options:
+        ind_sym_dd.options = list(ind_sym_dd.options) + [sym]
+    ind_sym_dd.value = sym
+
+add_btn.on_click(lambda _: choose_sym(ticker_input.value))
+ticker_input.on_submit(lambda _: choose_sym(ticker_input.value))
+sym_dd.observe(refresh_grid, names='value')
+
+def update_ind(symbol, interval):
+    with ind_output:
+        clear_output(wait=True)
+        if symbol:
+            plot_stock_technical(symbol, interval)
+
+ind_sym_dd.observe(lambda c: (setattr(ind_text_input, 'value', c['new']) if ind_text_input.value != c['new'] else None, update_ind(c['new'], ind_tf_dd.value)) if c['name'] == 'value' and c['new'] else None, names='value')
+ind_text_input.on_submit(lambda _: (set_tech_symbol(ind_text_input.value), update_ind(ind_sym_dd.value, ind_tf_dd.value)))
+ind_tf_dd.observe(lambda c: update_ind(ind_sym_dd.value, c['new']) if c['name'] == 'value' else None, names='value')
+
+# นำโครงสร้าง Dashboard ทั้งหมดมารวมกันไว้ใน main_app_output
+with main_app_output:
+    display(widgets.HTML('&lt;h2&gt;?? ผลลัพธ์การสแกนแยกตามเงื่อนไข (Dual Mode Summary)&lt;/h2&gt;'))
+    display(result_tabs)
+    display(widgets.VBox([
+        widgets.HTML('&lt;hr&gt;'),
+        split_panel,
+        widgets.HTML('&lt;hr&gt;'),
+        widgets.HTML('&lt;h3&gt;?? เมนูเสริมเพิ่มเติม&lt;/h3&gt;'),
+        extra_features_accordion,
+        news_panel
+    ]))
+
+# แสดงผล Dashboard หลักออกหน้าจอ
+display(main_app_output)
+refresh_grid()
+update_ind('PTT', '1d')
+update_shared_news('PTT')</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>HBox(children=(VBox(children=(HTML(value='&lt;h4&gt;?? ตั้งค่าสแกนกลุ่ม/ไฟล์ (Dual Mode)&lt;/h4&gt;'), Dropdown(descriptio…</pre></div>
+                        </div>
+                    </div>
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>Output()</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="export-footer">
+        Exported with <a href="https://www.runcell.dev/tool/ipynb-to-html">runcell</a> — convert notebooks to HTML or PDF anytime at runcell.dev.
+    </footer>
+</body>
+</html>
